@@ -1,0 +1,18 @@
+- name: Home
+  link: /my-blog/
+
+- name: Deep-Learning
+  link: /my-blog/deeplearning
+
+
+- name: Machine-Learning-with-Python
+  link: /my-blog/machine-learning-python
+
+- name: Machine-Learning-with-R
+  link: /my-blog/machine-learning-R/
+
+
+
+- name: About
+  link: /my-blog/about.html
+  

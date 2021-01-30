@@ -1,0 +1,79 @@
+---
+layout: default
+---
+<div class="w3-row" >
+<!-- Blog entries -->
+<div class="w3-col l8 s12" >
+
+<article class="post h-entry"
+ itemscope itemtype="http://schema.org/BlogPosting"  style="margin-right:10px;margin-left:20px;">
+
+  <header class="post-header">
+    <h2 class="post-title p-name" itemprop="name headline">{{ page.title | 
+    escape }}</h2>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}"
+       itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}</p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+   <span class="w3-container" > {{ content }}</span>
+  </div>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  
+</article>
+<hr>
+
+<!-- Posts -->
+<br>
+<div class="w3-col l3 w3-light-grey  w3-display-topright"
+ style="margin-top:100px;">
+  <!-- About Card -->
+  <div class=" w3-margin">
+    <div class="w3-container w3-padding">
+      <h4><b>Popular-Posts</b></h4>
+    </div>
+    <ul class="w3-hoverable ">
+      
+                {% for post in site.posts  %}
+
+ <li class="w3-padding-16">
+          <a href="{{ post.url | relative_url}}">{{ post.title}} 
+          </li>
+
+   {% endfor %}
+    
+  
+    </ul>
+  </div>
+  </div>
+  <hr> 
+
+</div>
+<!--
+<div class="w3-card w3-margin">
+    <div class="w3-container "><h4>Tags</h4></div>
+    <div class="w3-container w3-white">
+ {% for tag in site.tags  %}
+        <span>{{ tag[0] }}</span>
+         {% for post in tag[1] %}
+          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">
+          <a href="{{ post.url | relative_url}}">{{ post.title}} </span>
+          {% endfor %}
+
+
+ {% endfor %}
+     
+  </div>
+-->

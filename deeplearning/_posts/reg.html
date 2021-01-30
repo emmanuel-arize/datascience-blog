@@ -1,0 +1,70 @@
+<script id="MathJax-script" async src="../static/scripts/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../static/content/w3.css">
+<link rel="stylesheet" href="../static/content/font-awesome.min.css">
+<script src="../static/scripts/w3codecolor.js"></script>
+
+ 
+
+
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
+  <h3 class="w3-bar-item w3-text-indigo">Content</h3>
+  <a href="#linear" class="w3-bar-item w3-button">Linear Regression</a>
+  <a href="#simple" class="w3-bar-item w3-button">Simple Linear Regression</a>
+ </div>
+ 
+<div style="margin-left:20%">
+<div class="w3-card-4 w3-margin w3-white" >
+
+<div >
+<h1 class="w3-text-indigo" id="linear"><b> Linear Regression</b></h2>
+<h5>Linear Regression, <span class="w3-opacity">April 2, 2014</span></h5>
+</div>
+
+<div class="w3-container ">
+linear regression is one of the most widely used regression models. The model seek to identify a linear relationships between the dependent and independent variable(s). It models the expected value of a quantitative response (dependent) variable  from one or more explanatory variables (independent variables). 
+
+<h2 id="simple" class="w3-text-violet"><b>Simple Linear Regression and ordinary least squares (OLS)</b></h2>
+
+
+simple linear regression involves predicting a quantitative response variable from a single explanatory variable
+
+
+Let consider a simple linear regression to determine how the number of flyers sold on a day relate or determine the Sales of the day defined by:
+<p class="w3-panel w3-round-xlarge w3-card   w3-leftbar">$$Y_{i} = \beta_{0} +\beta_{1}X_{i} + \epsilon _{i}$$ </p>
+where 
+
+<ui>
+    <li>\(\epsilon _{i}\) are assumed to be independent random variables having a normal distribution with mean zero and constant
+variance \(\sigma^{2}\)</li>
+    <li>\(Y_{i}\)=Sales for the ith day</li>
+    <li>\(X_{i}\)=number of flyers sold on the ith day</li>
+    <li>\(\beta_{0} \)=the intercept of the line (the predicted amount of sales when no flyers is sold)</li>
+    <li>\(\beta_{1}\)=the slope of the line (the slope represent the change in Sales (Y) for a unit change in the number of flyers (X) sold))</li>
+   </ui>
+   
+  Using Simple Linear Regression, the model assumes there is approximately a linear relationship between the number of flyers (X) sold on a day and the Sales(Y) for that day  defined by
+
+\( Y \approx \beta_{0} +\beta_{1}X  \) 
+
+ 
+ <h2><b>NOTE</b></h2>
+ <p>
+ The intercept and slope are unknown constant of the model known as the model coefficients or parameters. </p>
+ 
+ <p>In order to predict the expected amount of Sales for a day based or conditioned on the number of flyers sold, the unknown parameters \( \beta_{0}\) and 
+ \(\beta_{1}\) are estimated using the training data as \(\hat \beta_{0}\) and \(\hat \beta_{1}\) such that</p>
+ <p class="w3-panel w3-round-xlarge w3-card   w3-leftbar">
+$$\hat y_{i}=\hat \beta_{0} +\hat \beta_{1}X_{i}$$ </p>
+
+where $\hat y_{i} $ is the  expected  predicted Sales (Y) of the day conditioned on the number of flyers (the ith value of X ) sold on that day using the estimated parameters. Using the model our goal is to predict the expected amount of Sales (y) for a day based or conditioned on the number of flyers sold defined as
+<p class="w3-panel w3-round-xlarge w3-card   w3-leftbar">$$E(Y)\approx \hat \beta_{0} +\hat \beta_{1}X_{i}$$ </p>
+
+The \(\hat \beta_{0}\)  and \(\hat \beta_{1}\) are estimated in such a way that minimize the residual sum of squares (RSS or \(SS_{res}\)) errors  defined as
+
+<p class="w3-panel w3-round-xlarge w3-card   w3-leftbar">$$RSS=SS_{res}=e^{2}=\sum_{i}^{n}(y_{i}-\hat y_{i})^{2}$$</p>
+
+
+
+
+
+<!--</div>-->

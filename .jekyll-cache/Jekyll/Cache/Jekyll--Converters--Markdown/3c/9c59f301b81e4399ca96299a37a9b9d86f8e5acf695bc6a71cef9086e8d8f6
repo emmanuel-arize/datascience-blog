@@ -1,0 +1,10 @@
+I"ä<p>linear regression is one of the most widely used regression models. The model seek to identify a linear relationships between the dependent and independent variable(s). It models the expected value of a quantitative response (dependent) variable  from one or more explanatory variables (independent variables).</p>
+
+<h2><b>Simple Linear Regression and ordinary least squares (OLS)</b></h2>
+
+<p>simple linear regression involves predicting a quantitative response variable from a single explanatory variable</p>
+
+<p>Let consider a simple linear regression to determine how the number of flyers sold on a day relate or determine the Sales of the day defined by:</p>
+<p>$Y_{i} = \beta_{0} +\beta_{1}X_{i} + \epsilon _{i}$ </p>
+<p>where</p>
+:ET

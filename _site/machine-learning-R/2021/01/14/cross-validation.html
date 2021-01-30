@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+ <style>
+#ma{
+margin-right: 150px;
+ 
+}
+body {
+    font-size: 20px;
+}
+    </style><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Cross-Validation(R) | ARIZE-BLOG</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Cross-Validation(R)" />
+<meta name="author" content="Arize Emmanuel" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="One of the finest techniques to check the generalization power of a machine learning model is to use Cross-validation techniques. Cross-validation refers to a set of methods for measuring the performance of a given predictive model and can be computationally expensive, because they involve fitting the same model multiple times using different subsets of the training data. Cross-validation techniques generally involves the following process:" />
+<meta property="og:description" content="One of the finest techniques to check the generalization power of a machine learning model is to use Cross-validation techniques. Cross-validation refers to a set of methods for measuring the performance of a given predictive model and can be computationally expensive, because they involve fitting the same model multiple times using different subsets of the training data. Cross-validation techniques generally involves the following process:" />
+<link rel="canonical" href="http://localhost:4000/my-blog/machine-learning-r/2021/01/14/cross-validation.html" />
+<meta property="og:url" content="http://localhost:4000/my-blog/machine-learning-r/2021/01/14/cross-validation.html" />
+<meta property="og:site_name" content="ARIZE-BLOG" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-14T02:02:23+00:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Cross-Validation(R)","dateModified":"2021-01-14T02:02:23+00:00","datePublished":"2021-01-14T02:02:23+00:00","url":"http://localhost:4000/my-blog/machine-learning-r/2021/01/14/cross-validation.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/my-blog/machine-learning-r/2021/01/14/cross-validation.html"},"author":{"@type":"Person","name":"Arize Emmanuel"},"description":"One of the finest techniques to check the generalization power of a machine learning model is to use Cross-validation techniques. Cross-validation refers to a set of methods for measuring the performance of a given predictive model and can be computationally expensive, because they involve fitting the same model multiple times using different subsets of the training data. Cross-validation techniques generally involves the following process:","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/my-blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/my-blog/feed.xml" title="ARIZE-BLOG" /></head>
+<body><!--<nav>
+  <a href="/">Home</a>
+  <a href="/about.html">About</a>
+</nav>-->
+
+<!--<h1 class=" w3-container w3-panel w3-leftbar w3-rightbar w3-center w3-border-blue w3-pale-blue">ARIZE-BLOG</h1>
+-->
+<style>
+#im {
+   background-image: url("/assets/images/back2.jpg");;
+}
+</style>
+<div class="w3-top">
+<div class="w3-container w3-leftbar w3-rightbar w3-center w3-border-blue w3-pale-blue"
+ id="im">
+  <h1 class="w3-text-light-green" style="text-shadow:1px 1px 0 #444">ARIZE-BLOG</h1>
+
+</div>
+<nav class="w3-bar w3-blue-gray">
+
+
+    <a href="/my-blog/" class="w3-bar-item w3-button">
+      Home
+    </a>
+  
+    <a href="/my-blog/deeplearning" class="w3-bar-item w3-button">
+      Deep-Learning
+    </a>
+  
+    <a href="/my-blog/machine-learning-python" class="w3-bar-item w3-button">
+      Machine-Learning-with-Python
+    </a>
+  
+    <a href="/my-blog/machine-learning-R/" class="w3-bar-item w3-button">
+      Machine-Learning-with-R
+    </a>
+  
+    <a href="/my-blog/about.html" class="w3-bar-item w3-button">
+      About
+    </a>
+  
+  
+</nav>
+</div><br>
+<br style="margin-top:30px;">
+<br>
+<br>
+    <br style="margin-top: 50px;">
+    <div id="ma" class="w3-container w3-card-4 w3-margin w3-white" 
+    style="margin-left: 100px;">
+    <div class="w3-row" >
+<!-- Blog entries -->
+<div class="w3-col l8 s12" >
+
+<article class="post h-entry"
+ itemscope itemtype="http://schema.org/BlogPosting"  style="margin-right:10px;margin-left:20px;">
+
+  <header class="post-header">
+    <h2 class="post-title p-name" itemprop="name headline">Cross-Validation(R)</h2>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-01-14T02:02:23+00:00"
+       itemprop="datePublished">Jan 14, 2021
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Arize Emmanuel</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+   <span class="w3-container" > <p>One of the finest techniques to check the generalization power of a machine learning model is to use <strong><em>Cross-validation techniques</em></strong>. <strong>Cross-validation</strong> refers to a set of methods for measuring the performance of a given predictive model and can be computationally expensive, because they involve fitting the same model multiple times using different subsets of the training data. Cross-validation techniques generally involves the following process:</p>
+
+<ol>
+  <li>
+    <p>DividE the available data set into two sets namely training and testing (validation) data set.</p>
+  </li>
+  <li>
+    <p>Train the model using the training set</p>
+  </li>
+  <li>
+    <p>Test the effectiveness of the model on the the reserved sample (testing) of the data set and estimate the prediction error.</p>
+  </li>
+</ol>
+
+<p><strong>cross-validation methods for assessing model performance includes,</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     Validation set approach (or data split)
+     Leave One Out Cross Validation
+     k-fold Cross Validation
+     Repeated k-fold Cross Validation
+</code></pre></div></div>
+
+<h1 id="validation-set-approach">Validation Set Approach</h1>
+<p>The validation set approach involves</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1.  randomly dividing the available data set into two parts namely,  training data set and validation data set.
+
+ 2.  Model is trained on the training data set
+
+ 3.  The Trained model is then used to predict observations in the validation   set to test the generalization 
+   
+   ability of  the model when faced with new observations by calculating the prediction error using model 
+   
+   performance metrics
+</code></pre></div></div>
+<p> loading the needed libraries </p>
+<pre><code class="language-{r}">library(tidyverse)
+library(caret)
+</code></pre>
+<p>Loading the data</p>
+<pre><code class="language-{r}">data("marketing", package = "datarium")
+
+</code></pre>
+<pre><code class="language-{r}">cat("The advertising dataset has",nrow(marketing),'observations and',ncol(marketing),'features')
+
+</code></pre>
+
+<p>The advertising datasets has 200 observations and 4 features</p>
+
+<p>displaying the first four rows or observations of the dataset</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">marketing</span><span class="p">,</span><span class="m">4</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img class="w3-center" src="/my-blog/assets/images/rmarketing.jpg" /></p>
+</span>
+  </div><a class="u-url" href="/my-blog/machine-learning-r/2021/01/14/cross-validation.html" hidden></a>
+  
+</article>
+<hr>
+
+<!-- Posts -->
+<br>
+<div class="w3-col l3 w3-light-grey w3-round-xxlarge w3-display-topright"
+ style="margin-top:150px;margin-right:20px">
+  <!-- About Card -->
+  <div class=" w3-margin">
+    <div class="w3-container w3-padding">
+      <h4><b>Popular ML-R-Posts</b></h4>
+    </div>
+    <ul class="w3-hoverable ">
+      
+                
+ 
+   
+ 
+   
+ 
+   
+ 
+ <li class="w3-padding-16">
+          <a href="/my-blog/machine-learning-r/2021/01/14/cross-validation.html">Cross-Validation(R) 
+          </li>
+  
+   
+    
+  
+    </ul>
+  </div>
+  </div>
+  <hr> 
+
+</div>
+<!--
+<div class="w3-card w3-margin">
+    <div class="w3-container "><h4>Tags</h4></div>
+    <div class="w3-container w3-white">
+ 
+        <span>very good tutorials</span>
+         
+          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">
+          <a href="/my-blog/machine-learning-r/2021/01/14/cross-validation.html">Cross-Validation(R) </span>
+          
+
+
+ 
+     
+  </div>
+-->
+
+  </div><!-- Footer -->
+
+
+
+<footer class="w3-container w3-dark-grey w3-center">
+<data class="u-url" href="/my-blog/"></data>
+<h3 >ARIZE-BLOG</h3>
+<p>
+
+          <span><span> Name:  Arize Emmanuel</span><p><span> Email:  <a href="mailto:arize1.emmanuel@gmail.com">arize1.emmanuel@gmail.com</a>
+            </span></p>
+
+ <span><span>Github: <a class="w3-text-white" href="https://github.com/emmanuel-arize">
+
+  emmanuel-arize</a></span></span> <br>
+<!--   
+         <p><img src="/assets/images/linkedin.png" style="float:left;width:30px;height:30px;">
+
+         <a href="https://www.linkedin.com/in/emmanuel-arize-277270134">
+          <span class="username">emmanuel-arize-277270134</span></a></p>
+
+
+
+ <p><img src="/assets/images/github.png" alt="Smiley face" style="float:left;width:20px;height:15px;">
+
+     <a href="https://github.com/emmanuel-arize">
+
+  <span class="username">emmanuel-arize</span></a></p>
+          
+-->   
+   
+        <p>Welcome to Arize blog.</p>
+      
+
+</footer></body>
+
+</html>
+<link rel="stylesheet" href="/my-blog/assets/content/w3.css">
+<script id="MathJax-script" async
+          src="/my-blog/assets/scripts/tex-mml-chtml.js">
+  </script>
+ <script type="text/javascript" id="MathJax-script" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/tex-svg.js">
+</script>
+
+

@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<style>
+#ma{
+margin-top: 20px;
+    text-align: center;
+}
+    </style>
+
+<div class="home" id="ma"><!--
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}-->
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading"><b>
+    {{ page.list_title | default: "Machine-Learning with R Posts" }}</b></h2>
+    <ul class="post-list">
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      {% if post.category=="machine-learning-R" %}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+{% endif %}
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+</div>

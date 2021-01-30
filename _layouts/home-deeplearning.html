@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<style>
+#ma{
+margin-top: 20px;
+margin-left:70px;
+}
+    </style>
+
+<div class="home" id="ma">
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading ">
+    <b>{{ page.list_title | default: "Deep-Learning Posts" }}</b></h2>
+    <ul class="post-list">
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+     {% if post.category=="deep-learning"  %}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        
+       
+<article class="post">
+
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+<span class="post-meta">{{ post.date | date: date_format }}</span>
+      <div class="entry">
+    {{ post.excerpt | truncatewords: 30}}
+      </div>
+  <p>
+      <a href="{{ site.baseurl }}{{ post.url }}" 
+      class="read-more w3-button w3-blue w3-border"><b>READ MORE »
+      </b></a></p>
+    </article>
+
+      {% endif %}
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+</div>

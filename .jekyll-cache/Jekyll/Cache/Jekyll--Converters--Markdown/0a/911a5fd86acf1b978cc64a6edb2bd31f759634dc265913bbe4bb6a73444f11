@@ -1,0 +1,22 @@
+I"@	<h1 id="classification-problem">CLASSIFICATION PROBLEM</h1>
+
+<p>In the previous section we talked about regression which deals with quantitative target variable answering questions such as how much? or how many?. Regression problems include predicting the price of a house, the age of students and the salary of an employee.</p>
+
+<p><strong><em>In practice, we are more often interested in making categorical assignments: asking not how much? but which one (a boy or a girl, spam or not spam)</em></strong>?. We consider a problem to be a classification problem when dealing with qualitative (categorical) target variable with the aim of assigning an input described by vector $X$ to one of the $n$ discrete categories (classes) $C_{i}$ where $i = 1,2 \cdots,n$.</p>
+
+<p>A classifier is a map</p>
+
+<p>$f(x) \rightarrow C_{i}$</p>
+
+<p>There are numerous classification methods that can be used to predict categorical outcomes, including logistic regression, linear discriminant analysis (LDA), K-nearest neighbors (KNN), support vector machines (SVM) ,decision trees , neural networks etc.</p>
+
+<h2 id="logistic-regression">Logistic regression</h2>
+
+<p>The simplest classification problems involves only two classes which are usually labeled 0 for negative class (y=0|x) and 1 for positive (y=1|X) . Classification problems involving only two categories are often called $binary \ classification \ problems$.</p>
+
+<p>$Logistic \ regression$ is a probabilistic binary classifier which estimates, for each data point, the conditional probability that it belongs to one of the two classes, that is Logistic regression is applied to situations in which the response variable is dichotomous (0 or 1). This can be used to classify an observation into one of the two classes (like ‘positive sentiment’ or ‘negative sentiment’, perished or survived, yes or no), from a set of continuous or categorical predictor variables. By choosing a threshold value (usually 0.5), we classified output with probability greater than the threshold as one class usually the class labeled 1 (positive class) and values below the threshold as belonging to the other class labeled 0 (negative class)</p>
+
+<h1 id="note--we-want-to-predict-whether-a-passenger-will-survive-or-not">NOTE : We want to predict whether a passenger will survive or not</h1>
+
+<p>Recall from linear regression</p>
+:ET
