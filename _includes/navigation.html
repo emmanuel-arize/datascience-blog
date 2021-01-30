@@ -16,14 +16,29 @@
   <h1 class="w3-text-light-green" style="text-shadow:1px 1px 0 #444">ARIZE-BLOG</h1>
 
 </div>
-<nav class="w3-bar w3-blue-gray">
-
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
 {% for item in site.data.navigation %}
     <a href="{{ item.link }}" {% if page.url == item.link %}
-    style="background-color: blue;"{% endif %}class="w3-bar-item w3-button">
+    style="background-color: blue;"{% endif %} 
+    class="w3-bar-item w3-button">
       {{ item.name }}
     </a>
   {% endfor %}
-  
-</nav>
 </div>
+
+<!-- Page Content -->
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰TOPICS</button>
+</div>
+
+
+
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
