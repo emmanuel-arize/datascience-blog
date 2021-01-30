@@ -1,8 +1,8 @@
 - name: Home
-  link: /my-blog/
+  link: /datascience-blog/
 
 - name: Deep-Learning
-  link: /deeplearning
+  link: /datascience-blog/deeplearning
 
 
 - name: Machine-Learning-with-Python
