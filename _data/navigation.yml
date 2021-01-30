@@ -6,13 +6,13 @@
 
 
 - name: Machine-Learning-with-Python
-  link: /my-blog/machine-learning-python
+  link: /datascience-blog/machine-learning-python
 
 - name: Machine-Learning-with-R
-  link: /my-blog/machine-learning-R/
+  link: /datascience-blog/machine-learning-R/
 
 
 
 - name: About
-  link: /my-blog/about.html
+  link: /datascience-blog/about.html
   
