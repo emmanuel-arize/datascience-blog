@@ -9,7 +9,7 @@ layout: default
  itemscope itemtype="http://schema.org/BlogPosting"  style="margin-right:10px;margin-left:20px;">
 
   <header class="post-header">
-    <h2 class="post-title p-name" itemprop="name headline">{{ page.title | 
+    <h2 class="post-title p-name" itemprop="name headline">{{ page.title |
     escape }}</h2>
     <p class="post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}"
@@ -31,7 +31,7 @@ layout: default
   {%- endif -%}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-  
+
 </article>
 <hr>
 
@@ -45,20 +45,20 @@ layout: default
       <h4><b>Popular-Posts</b></h4>
     </div>
     <ul class="w3-hoverable ">
-      
+
                 {% for post in site.posts  %}
 
  <li class="w3-padding-16">
-          <a href="{{ post.url | relative_url}}">{{ post.title}} 
+          <a href="{{ post.url | relative_url}}">{{ post.title}}
           </li>
 
    {% endfor %}
-    
-  
+
+
     </ul>
   </div>
   </div>
-  <hr> 
+  <hr>
 
 </div>
 <!--
@@ -74,6 +74,6 @@ layout: default
 
 
  {% endfor %}
-     
+
   </div>
 -->

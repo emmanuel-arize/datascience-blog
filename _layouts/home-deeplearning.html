@@ -22,8 +22,8 @@ margin-left:70px;
      {% if post.category=="deep-learning"  %}
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        
-       
+
+
 <article class="post">
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
@@ -32,7 +32,7 @@ margin-left:70px;
     {{ post.excerpt | truncatewords: 30}}
       </div>
   <p>
-      <a href="{{ site.baseurl }}{{ post.url }}" 
+      <a href="{{ site.baseurl }}{{ post.url }}"
       class="read-more w3-button w3-blue w3-border"><b>READ MORE »
       </b></a></p>
     </article>
@@ -40,6 +40,11 @@ margin-left:70px;
       {% endif %}
       {%- endfor -%}
     </ul>
+
+{% if paginator.previous_page or paginator.next_page %}
+{% include pagination.html %}
+{% endif %}
+
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   {%- endif -%}
