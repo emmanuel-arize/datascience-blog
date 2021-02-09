@@ -13,7 +13,7 @@ One of the finest techniques to check the generalization power of a machine lear
 
 2.  Train the model using the training set
 
-3.  Test the effectiveness of the model on the the reserved sample (testing) of the data set and estimate the prediction error.
+3.  Test the effectiveness of the model on the reserved sample (testing) of the data set and estimate the prediction error.
 
 **cross-validation methods for assessing model performance includes,**
 
@@ -21,25 +21,25 @@ One of the finest techniques to check the generalization power of a machine lear
          Leave One Out Cross Validation
          k-fold Cross Validation
          Repeated k-fold Cross Validation
-         
+
 
 <h3><b> Validation Set Approach</b></h3>
 The validation set approach involves
-         
+
      1.  randomly dividing the available data set into two parts namely,  training data set and validation data set.
 
      2.  Train the model on the training data set
 
-     3.  The Trained model is then used to predict observations in the validation   set to test the generalization 
-   
+     3.  The Trained model is then used to predict observations in the validation   set to test the generalization
+
        ability of  the model when faced with new observations by calculating the prediction error.
 
-<p> loading the needed libraries </p> 
+<p> loading the needed libraries </p>
 ```{r}
 library(tidyverse)
 library(caret)
 ```
-Loading the data 
+Loading the data
 ```{r}
 data("marketing", package = "datarium")
 
@@ -78,7 +78,7 @@ model<-lm(sales~.,data=training_set)
 prediction<-model %>% predict(testing_set)
 ```
 
-<p>The code below calculates the mean absolut error (MAE), root mean square error (RMSE) and the R-Squre of the model based on the test set</p>
+<p>The code below calculates the mean absolut error (MAE), root mean square error (RMSE) and the R-Square of the model based on the test set</p>
 
 ```{r}
 data.frame( R2 = R2(prediction, testing_set$sales),
@@ -103,8 +103,8 @@ the validation set approach is only useful when a large data set is available. T
 
 <h3><b> LEAVE ONE OUT CROSS VALIDATION- LOOCV</b></h3>
 
-LOOCV is a special case of K-cross-validation where the number of folds equals the number of instances in the data set.It involves splitting the date set into two parts. However, instead of creating two subsets of comparable size, only a single data point is reserved as the test set.
-The model is trained on the training set which consist of all the data points except the reserved point and compute the test error on the reserved data point. It repeats the process until each of the n data points has served as the test set and then avarage the n test errors.
+LOOCV is a special case of K-cross-validation where the number of folds equals the number of instances in the data set. It involves splitting the date set into two parts. However, instead of creating two subsets of comparable size, only a single data point is reserved as the test set.
+The model is trained on the training set which consist of all the data points except the reserved point and compute the test error on the reserved data point. It repeats the process until each of the n data points has served as the test set and then average the n test errors.
 
 
 <p>Let now implement LOOCV</p>
@@ -118,13 +118,13 @@ Although in LOOCV method, we make use all data points reducing potential bias, i
 
 
 
-<h3><b> K-Fold Cross-Validation</b></h3> 
+<h3><b> K-Fold Cross-Validation</b></h3>
 
 In practice if we have enough data, we set aside part of the data set known as the validation set and use it to measure the performance of our model prediction but since data are often scarce, this is usually not possible and the best practice in such situations is to use **K-fold cross-validation**.
 
-<h4><b>K-fold cross-validation involves</b></h4> 
+<h4><b>K-fold cross-validation involves</b></h4>
 
-1.  Randomly splitting the data set into k-subsets (or k-fold) 
+1.  Randomly splitting the data set into k-subsets (or k-fold)
 2. Train the model on K-1  subsets
 3. Test the model on the reserved subset and record the prediction error
 4. Repeat this process until each of the k subsets has served as the test set.
@@ -141,7 +141,7 @@ cv_model
 
 The process of splitting the data into k-folds can be repeated a number of times, this is called repeated k-fold cross validation.
 
-number -the number of folds 
+number -the number of folds
 
 repeats	For repeated k-fold cross-validation only: the number of complete sets of folds to compute
 
@@ -152,5 +152,5 @@ train(sales~.,marketing , method="lm",trControl=trainControl(method ="repeatedcv
 <img class="w3-center" src="{{'/assets/images/R/crossvalidation/repeatedcv.jpg' |relative_url}}">
 
 <h2> References:</h2>
-- <a href="https://www.springer.com/series/417" target="_blank"> 
+- <a href="https://www.springer.com/series/417" target="_blank">
 Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani. An Introduction to Statistical Learning  with Applications in R.</a><br>
