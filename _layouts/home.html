@@ -2,6 +2,7 @@
 layout: default
 ---
 
+<br style="margin-top:10px;">
 <style>
 #ma{
 margin-top: 20px;
@@ -19,11 +20,11 @@ margin-left:70px;
     <ul class="post-list">
     <ul class="post-list">
       {%- for post in site.posts -%}
-  
+
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        
-       
+
+
 <article class="post">
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
@@ -32,12 +33,12 @@ margin-left:70px;
     {{ post.excerpt | truncatewords: 30}}
       </div>
   <p>
-      <a href="{{ site.baseurl }}{{ post.url }}" 
+      <a href="{{ site.baseurl }}{{ post.url }}"
       class="read-more w3-button w3-blue w3-border"><b>READ MORE »
       </b></a></p>
     </article>
 
-  
+
       {%- endfor -%}
     </ul>
 

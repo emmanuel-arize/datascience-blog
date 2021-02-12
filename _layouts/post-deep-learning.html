@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<br style="margin-top:10px;">
 <div class="w3-row" >
 <!-- Blog entries -->
 <div style="margin-right:80px;margin-left: 80px; background-color:white;">
@@ -43,10 +44,11 @@ layout: default
       <h4><b>Recommended Deep-Learning-Posts</b></h4>
     </div>
     <ul class="w3-hoverable ">
+
                 {% for post in site.posts  %}
  {% if post.category=="deep-learning" %}
  <li class="w3-padding-16">
-   <a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title}}</a>
+          <a href="{{ post.url | relative_url}}">{{ post.title}}
           </li>
   {% endif %}
    {% endfor %}
