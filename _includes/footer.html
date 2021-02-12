@@ -2,32 +2,31 @@
 
 
 
-<footer class="w3-container w3-dark-grey w3-center">
+<footer class="w3-container w3-grey w3-center">
 <data class="u-url" href="{{ "/" | relative_url }}"></data>
-<h3 >{{ site.title| escape }}</h3>
 <p>
 
-          <span>{%- if site.author -%}
-        <span> Name:  {{ site.author | escape }}</span>
+          <span style="color:white">{%- if site.author -%}
+        <span style="color:white"> Name:  {{ site.author | escape }}</span>
             {%- else -%}</span></p>
               {{ site.title | escape }}
             {%- endif -%}
             <p>
-           
+
             {%- if site.email -%}
-            <span> Email:  <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+            <span style="color:white"> Email:  <a href="mailto:{{ site.email }}">{{ site.email }}</a>
             </span>
-            {%- endif -%}           
+            {%- endif -%}
             </p>
 
  <span>
             {%- if site.github_username -%}
-<span>Github: <a class="w3-text-white" href="https://github.com/{{ site.github_username| cgi_escape | escape }}">
+<span style="color:white">Github: <a class="w3-text-white" href="https://github.com/{{ site.github_username| cgi_escape | escape }}">
 
   {{ site.github_username| escape }}</a></span>
   {%- endif -%}
             </span> <br>
-<!--   
+<!--
          <p>   {%- if site.linkedin_username -%}
          <img src="/assets/images/linkedin.png" style="float:left;width:30px;height:30px;">
 
@@ -45,11 +44,8 @@
 
   <span class="username">{{ site.github_username| escape }}</span></a>
   {%- endif -%}</p>
-          
--->   
-   
-        <p>{{- site.description | escape -}}</p>
-      
 
-<a class="cta" href="{{ site.baseurl }}feed.xml">Subscribe</a>
-</footer>
+-->
+
+        <p>{{- site.description | escape -}}</p>
+      </footer>
