@@ -1,0 +1,11 @@
+{% extends "iris/layout.html" %}
+{% block content %}
+<div class="jumbotron">
+<div class="container bg-dark text-info text-center">
+    <h1>  The Predicted Species is<b style='color:green'> {{result}}</b>.</h1>
+    <a  class="text-muted" href={% url 'home' %}>Return to the Prediction form page</a>
+</div>
+</div>
+
+
+{% endblock content %}
