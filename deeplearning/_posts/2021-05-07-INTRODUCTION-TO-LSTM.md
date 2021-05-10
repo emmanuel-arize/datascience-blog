@@ -32,9 +32,8 @@ The core idea of LSTMs is their memory cell state denoted by $$C_{t}$$ which is 
 <br/>
 <img img id='lstm'  class="w3-center" src="{{'/assets/images/deep/keras/LSTM.png' |relative_url}}">
 <br/><br/>
-<span id='Fig'>Figure 1</span>
 
-<a href='https://www.researchgate.net/figure/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_fig5_329362532'>source <a/>
+<a href='https://www.researchgate.net/figure/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_fig5_329362532'><span id='Fig'>Figure 1</span><a/>
 
 From <a href='#lstm'>Figure 1</a> the first step of the LSTM model is to decide  how to delete information from the context that is no longer needed and this is controlled by the
 the <b>forget gate </b> denoted by $$f_t$$. The forgate gate is responsible for regulating the removal of information from the cell state that is no longer needed and is defined as
