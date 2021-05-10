@@ -30,8 +30,10 @@ The vanishing and exploding gradients problem, limit the ability of conventional
 The core idea of LSTMs is their memory cell state denoted by $$C_{t}$$ which is controled by the gating mechanism. At each time step, the controllable gating mechanisms decide which parts of the inputs will be written to the memory cell state, and which parts of memory cell state will be overwritten (forgotten), regulating information flowing into and out of the memory cell state, making LSTMs networks dividing the context management problem into two sub-problems: removing information no longer needed from the context and adding information likely to be needed for later decision making to the context. <a href='#lstm'>Figure 1</a>  is a A schematic diagram of LSTMs.
 <br/>
 <br/>
-<img img id='lstm'  class="w3-center" src="{{'/assets/images/deep/keras/LSTM.png' |relative_url}}"><span id='Fig'>Figure 1</span>
-<br/>
+<img img id='lstm'  class="w3-center" src="{{'/assets/images/deep/keras/LSTM.png' |relative_url}}">
+<br/><br/>
+<span id='Fig'>Figure 1</span>
+
 <a href='https://www.researchgate.net/figure/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_fig5_329362532'>source <a/>
 
 From <a href='#lstm'>Figure 1</a> the first step of the LSTM model is to decide  how to delete information from the context that is no longer needed and this is controlled by the
