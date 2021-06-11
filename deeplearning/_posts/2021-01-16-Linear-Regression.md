@@ -2,6 +2,7 @@
 layout: post-deep-learning
 title: Linear Regression
 category: deep-learning
+author: Arize Emmanuel
 #tag: Linear Regresion with mxnet,keras and pytorch
 comments: true
 editor_options:

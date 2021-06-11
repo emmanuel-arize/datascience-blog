@@ -2,6 +2,7 @@
 layout: post-deep-learning
 title: Logistic Regression
 category: deep-learning
+author: Arize Emmanuel
 editor_options:
   markdown:
     wrap: 72
