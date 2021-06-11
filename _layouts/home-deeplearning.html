@@ -27,7 +27,7 @@ margin-left:70px;
 <article class="post">
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-<span class="post-meta">{{ post.date | date: date_format }}</span>
+<span class="post-meta">{{ post.date | date: date_format }} By {{post.author}}</span>
       <div class="entry">
     {{ post.excerpt | truncatewords: 30}}
       </div>
